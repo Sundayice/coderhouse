@@ -1,0 +1,12 @@
+constante es un valor que no se modifioca es un alor fijo
+ 
+como por ejemplo const pi="3,14" 
+
+eso no va a cambiar	
+
+
+
+para establecer numeros se pone con punto, es decir, los decimales se establecen con punto y no con coma
+
+
+para definir varias veces es con let 
