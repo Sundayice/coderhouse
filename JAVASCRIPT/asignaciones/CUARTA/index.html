@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carlos Padilla | Desafío 4</title>
+
+
+    <!--JAVASCRIPT-->
+
+    <script>
+
+        var nombreCliente;
+        var direccionCliente; 
+        var telefonoCliente;
+        var nombreProducto;
+        var precio;
+        var cantidad;
+        var total;
+        var subtotal;
+        var p = 0;
+        var iva;
+        var subtotalP = 0;
+        var fecha = new Date();
+        var imprimir;
+        var numero_Factura = 0;
+      
+        function generarFactura(){
+      
+        nombreCliente = document.getElementById("nombreCliente").value;
+
+        direccionCliente = document.getElementById("direccionCliente").value;
+
+        telefonoCliente = document.getElementById("telefonoCliente").value;
+      
+        document.write(fecha.getDate() + "/" + (fecha.getMonth()+1) + "/" + fecha.getFullYear()+"</br> "+" </br> "+" </br>");
+
+        document.write("Nombre del Cliente:" + '&nbsp;'+nombreCliente + "<br>" + "<br>");
+
+        document.write("Direccion:" + '&nbsp;' + direccionCliente + "<br> "+" <br>");
+
+        document.write("Telefono:" + '&nbsp;' + telefonoCliente+"<br> " + " <br> " + " <br>");
+        
+        
+        for (subtotal = 0; nombreProducto != "*"; subtotal++) {
+      
+      
+        nombreProducto = prompt('¿Qué está llevando? (Producto)');
+        document.write("Nombre Producto:  "+'&nbsp;'+nombreProducto+'&nbsp;'+'&nbsp;');
+      
+        precio = parseFloat(prompt('¿Cuál es su precio?'));
+        document.write("Precio:  "+' &nbsp;'+ precio + '&nbsp; '+' &nbsp;');
+            
+        cantidad = parseInt(prompt('¿Cuántos está llevando? (Cantidad)'));
+        document.write("Cantidad:  " +'&nbsp;' + cantidad + '&nbsp;'+'&nbsp;');
+      
+      
+        nombreProducto=prompt('Ingrese un ASTERISCO para terminar, si tiene más compras pulse aceptar para agregarlas a su factura');
+      
+        subtotal = precio*cantidad;
+        subtotalP = subtotalP+parseInt(subtotal);
+        iva = subtotalP * 0.19;
+        total = subtotalP + iva;
+        
+      
+        document.write("SubTotal :" + '&nbsp;' + subtotal+"<br> "+" <br> "+" <br>");
+        }
+
+        document.write("Subtotal : " + '&nbsp;' + subtotalP+"<br> "+" <br>");
+        document.write("Iva 19% :" + '&nbsp;' + iva + "<br> "+" <br>");
+        document.write("Total :" + '&nbsp;' + total + "<br> "+" <br>");
+        document.write('<button onclick="window.print()">Imprimir Factura</button>');
+      }
+      
+      generarFactura()
+      </script>
+</head>
+<body>
+    <h2>Bienvenido</h2>
+
+    Ingrese su Nombre y Apellido <br><input type="text" name="nombreCliente" id="nombreCliente" placeholder="Primer nombre/Primer apellido"/><br><br>
+
+    Ingrese su Direccion de Casa <br><input type="text" name="direccionCliente" id="direccionCliente" placeholder="¿Cuál es su dirección?"/><br><br>
+
+    Ingrese su número de Teléfono <br><input type="text" name="telefonoCliente" id="telefonoCliente" placeholder="¿Cuál es su número telefónico"/><br><br>
+
+   <input type="button"  name="Continuar" onclick="generarFactura()"  
+    value="Continuar"/>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
